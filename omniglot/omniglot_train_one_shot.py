@@ -234,6 +234,9 @@ def main():
 
                 # start change
                 
+                use_cuda = torch.cuda.is_available()
+                device = torch.device('cuda:0' if use_cuda else 'cpu')
+                
                 test_labels = test_labels.to(device)  # missing line from original code
 #                 _, predicted = torch.max(out.data, 1)
 #                 _,predict_labels = torch.max(relations.data,1)
