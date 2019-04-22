@@ -184,7 +184,13 @@ def main():
                 relations = relation_network(relation_pairs).view(-1,CLASS_NUM)
 
                 _,predict_labels = torch.max(relations.data,1)
-
+                
+                # start change
+                
+                use_cuda = torch.cuda.is_available()
+                device = torch.device('cuda:0' if use_cuda else 'cpu')
+                test_labels = test_labels.to(device)
+                
                 rewards = [1 if predict_labels[j]==test_labels[j] else 0 for j in range(CLASS_NUM)]
 
                 total_rewards += np.sum(rewards)
