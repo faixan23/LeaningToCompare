@@ -68,8 +68,8 @@ class OmniglotTask(object):
             self.train_roots += samples[c][:train_num]
             self.test_roots += samples[c][train_num:train_num+test_num]
         print(self.get_class(self.train_roots[0]))
-        self.train_labels = [labels[self.get_class(x)] for x in self.train_roots]
-        self.test_labels = [labels[self.get_class(x)] for x in self.test_roots]
+        self.train_labels = [labels[("/" + self.get_class(x))] for x in self.train_roots]
+        self.test_labels = [labels["/" + self.get_class(x)] for x in self.test_roots]
 
     def get_class(self, sample):
         return os.path.join(*sample.split('/')[:-1])
