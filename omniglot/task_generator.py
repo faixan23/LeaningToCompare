@@ -25,7 +25,7 @@ class Rotate(object):
         return x
 
 def omniglot_character_folders():
-    data_folder = '../datas/omniglot_resized/'
+    data_folder = '/content/LeaningToCompare/omniglot/datas/omniglot_resized/'
 
     character_folders = [os.path.join(data_folder, family, character) \
                 for family in os.listdir(data_folder) \
