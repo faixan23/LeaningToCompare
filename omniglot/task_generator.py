@@ -78,10 +78,10 @@ class OmniglotTask(object):
 class FewShotDataset(Dataset):
 
     def __init__(self, task, split='train', transform=None, target_transform=None):
-        self.transform = transform # Torch operations on the input image
-#         self.transform = transforms.Compose([transforms.ToTensor(),
-#           transforms.Normalize((0.5,), (0.5,))
-#         ])
+#         self.transform = transform # Torch operations on the input image
+        self.transform = transforms.Compose([transforms.ToTensor(),
+          transforms.Normalize((0.5,), (0.5,))
+        ])
         self.target_transform = target_transform
         self.task = task
         self.split = split
@@ -99,6 +99,9 @@ class Omniglot(FewShotDataset):
 
     def __init__(self, *args, **kwargs):
         super(Omniglot, self).__init__(*args, **kwargs)
+        self.transform = transforms.Compose([transforms.ToTensor(),
+          transforms.Normalize((0.5,), (0.5,))
+        ])
 
     def __getitem__(self, idx):
         image_root = self.image_roots[idx]
