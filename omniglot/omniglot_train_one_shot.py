@@ -232,6 +232,18 @@ def main():
                 relation_pairs = torch.cat((sample_features_ext,test_features_ext),2).view(-1,FEATURE_DIM*2,5,5)
                 relations = relation_network(relation_pairs).view(-1,CLASS_NUM)
 
+                # start change
+                
+                test_labels = test_labels.to(device)  # missing line from original code
+#                 _, predicted = torch.max(out.data, 1)
+#                 _,predict_labels = torch.max(relations.data,1)
+#                 total += labels.size(0)
+#                 correct += (predicted == labels).sum().item()
+                #end change
+                
+                
+                
+                
                 _,predict_labels = torch.max(relations.data,1)
 
                 rewards = [1 if predict_labels[j]==test_labels[j] else 0 for j in range(CLASS_NUM)]
