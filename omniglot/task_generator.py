@@ -30,7 +30,7 @@ def omniglot_character_folders():
     character_folders = [os.path.join(data_folder, family, character) \
                 for family in os.listdir(data_folder) \
                 if os.path.isdir(os.path.join(data_folder, family)) \
-                for character in os.listdir(os.path.join(data_folder, family))]
+                for character in os.listdir(os.path.join(data_folder, family)) if not character.startswith('.')]
     random.seed(1)
     random.shuffle(character_folders)
 
