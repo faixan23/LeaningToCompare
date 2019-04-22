@@ -260,8 +260,8 @@ def main():
             if test_accuracy > last_accuracy:
 
                 # save networks
-                torch.save(feature_encoder.state_dict(),str("/content/omniglot/models/omniglot_feature_encoder_" + str(CLASS_NUM) +"way_" + str(SAMPLE_NUM_PER_CLASS) +"shot.pkl"))
-                torch.save(relation_network.state_dict(),str("/content/omniglot/models/omniglot_relation_network_"+ str(CLASS_NUM) +"way_" + str(SAMPLE_NUM_PER_CLASS) +"shot.pkl"))
+                torch.save(feature_encoder.state_dict(),str("/content/LeaningToCompare/omniglot/models/omniglot_feature_encoder_" + str(CLASS_NUM) +"way_" + str(SAMPLE_NUM_PER_CLASS) +"shot.pkl"))
+                torch.save(relation_network.state_dict(),str("/content/LeaningToCompare/omniglot/models/omniglot_relation_network_"+ str(CLASS_NUM) +"way_" + str(SAMPLE_NUM_PER_CLASS) +"shot.pkl"))
 
                 print("save networks for episode:",episode)
 
