@@ -186,7 +186,9 @@ def main():
                 relations = relation_network(relation_pairs).view(-1,CLASS_NUM)
 
                 _,predict_labels = torch.max(relations.data,1)
-
+                
+                test_labels = test_labels.long().cuda()
+                
                 rewards = [1 if predict_labels[j]==test_labels[j] else 0 for j in range(CLASS_NUM*SAMPLE_NUM_PER_CLASS)]
 
                 total_rewards += np.sum(rewards)
